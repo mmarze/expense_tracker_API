@@ -1,2 +1,2 @@
 django == 4.1.7
-djangorestframweork==3.14.0
+djangorestframweork == 3.14.0
