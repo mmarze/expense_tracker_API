@@ -98,10 +98,10 @@ class TestViews(TestCase):
         self.assertFalse(models.Expense.objects.filter(pk=expense.id).exists())
 
     def test_list_expense_filter_by_merchant(self):
-        amazon_expense = models.Expense.object.create(
+        amazon_expense = models.Expense.objects.create(
             amount=100, merchant="amazon", description="sunglasses", category="fashion"
         )
-        ebay_expense = models.Expense.object.create(
+        ebay_expense = models.Expense.objects.create(
             amount=200, merchant="ebay", description="watch", category="fashion"
         )
 
