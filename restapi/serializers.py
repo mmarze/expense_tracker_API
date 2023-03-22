@@ -3,7 +3,7 @@ from restapi import models
 
 
 class Expense(serializers.ModelSerializer):
-    amount = serializers.FloatFiels(required=True)
+    amount = serializers.FloatField(required=True)
     merchant = serializers.CharField(required=True)
     description = serializers.CharField(required=False)
     category = serializers.CharField(required=True)

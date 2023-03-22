@@ -8,7 +8,7 @@ class ExpenseListCreate(ListCreateAPIView):
     serializer_class = serializers.Expense
     queryset = models.Expense.objects.all()
     filterset_fileds = ["category", "merchant"]
-    permissions.classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
 
 class ExpenseRetrieveDelete(RetrieveDestroyAPIView):
