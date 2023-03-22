@@ -91,7 +91,7 @@ class TestViews(TestCase):
             amount=400, merchant="John", description="loan", category="transfer"
         )
         res = self.client.delete(
-            reverse("restapi:expense-retrieve-delete"), args=[expense.id], format="json"
+            reverse("restapi:expense-retrieve-delete", args=[expense.id]), format="json"
         )
 
         self.assertEqual(204, res.status_code)

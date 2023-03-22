@@ -7,6 +7,6 @@ urlpatterns = [
     path(
         "expenses/<pk>",
         views.ExpenseRetrieveDelete.as_view(),
-        name="expense_retrieve_delete",
+        name="expense-retrieve-delete",
     ),
 ]
