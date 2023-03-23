@@ -80,18 +80,15 @@ class TestViews(TestCase):
             amount=300, merchant="George", description="loan", category="transfer"
         )
         res = self.client.get(
-            reverse("restapi:expense-retrieve-delete"), args=[expense.id], format="json"
+            reverse("restapi:expense-retrieve-delete", args=[expense.id]), format="json"
         )
-
         self.assertEqual(200, res.status_code)
-
         json_res = res.json()
-
-        self.assertEqual(expense.id, json_res.id)
-        self.assertEqual(expense.amount, json_res.amount)
-        self.assertEqual(expense.merchant, json_res.merchant)
-        self.assertEqual(expense.description, json_res.description)
-        self.assertEqual(expense.category, json_res.category)
+        self.assertEqual(expense.id, json_res["id"])
+        self.assertEqual(expense.amount, json_res["amount"])
+        self.assertEqual(expense.merchant, json_res["merchant"])
+        self.assertEqual(expense.description, json_res["description"])
+        self.assertEqual(expense.category, json_res["category"])
 
     def test_expense_delete(self):
         expense = models.Expense.objects.create(
