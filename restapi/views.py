@@ -8,7 +8,7 @@ from rest_framework_api_key.permissions import HasAPIKey
 class ExpenseListCreate(ListCreateAPIView):
     serializer_class = serializers.Expense
     queryset = models.Expense.objects.all()
-    filterset_fileds = ["category", "merchant"]
+    filterset_fields = ["category", "merchant"]
     permission_classes = [HasAPIKey]
 
 
