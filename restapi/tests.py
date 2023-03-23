@@ -108,14 +108,10 @@ class TestViews(TestCase):
         ebay_expense = models.Expense.objects.create(
             amount=200, merchant="ebay", description="watch", category="fashion"
         )
-
-        url = "/api/expenses/merchant=amazon"
+        url = "/api/expenses?merchant=amazon"
         res = self.client.get(url, format="json")
-
         self.assertEqual(200, res.status_code)
-
         json_res = res.json()
-
         self.assertEqual(1, len(json_res))
         self.assertEqual(amazon_expense.id, json_res[0]["id"])
         self.assertEqual(amazon_expense.amount, json_res[0]["amount"])
